@@ -12,7 +12,6 @@ document.querySelectorAll("#new-pet-form input").forEach((field) => {
         console.log(newPetObject)
     });
 });
-
 const savePet = async (pet) => {
     let response = await fetch(`${BASE_URL}/mascotas.json`, {
         method: "POST",
@@ -21,7 +20,6 @@ const savePet = async (pet) => {
     let data = await response.json();
     return data;
 };
-
 document.querySelectorAll("#pet-form input").forEach((field) => {
     field.addEventListener("keyup", (event) => {
         let property = event.target.name;
@@ -30,7 +28,6 @@ document.querySelectorAll("#pet-form input").forEach((field) => {
         console.log(petObject);
     });
 });
-
 const updatePet = async (pet, clave) => {
     let response = await fetch(`${BASE_URL}/mascotas/${clave}.json`, {
         method: "PATCH",
@@ -39,7 +36,6 @@ const updatePet = async (pet, clave) => {
     let data = await response.json();
     return data;
 };
-
 document.getElementById("save-pet").addEventListener("click", async (event) => {
     event.preventDefault();
     let response = await savePet(petObject);
@@ -161,19 +157,13 @@ const createPetCard = (petData, petKey) => {
     });
 
     buttonWrapper.append(deleteButton, detailButton, editButton);
-
     cardBody.append(cardTitle, cardType, cardBreed, cardAge, buttonWrapper);
-
     contentCol.append(cardBody);
-
     imageCol.append(cardPicture);
-
     cardRow.append(imageCol, contentCol);
-
     cardWrapper.append(cardRow);
-
     cardCol.append(cardWrapper);
-
+    
     return cardCol;
 };
 
@@ -182,7 +172,6 @@ const getAllPets = async () => {
     let data = await response.json();
     return data;
 };
-
 const deletePet = async (petKey) => {
     let response = await fetch(`${BASE_URL}/mascotas/${petKey}/.json`, {
         method: "DELETE",
@@ -191,7 +180,6 @@ const deletePet = async (petKey) => {
     console.log(data);
     printAllPets("pet-list");
 };
-
 const printAllPets = async (listId) => {
     let pets = await getAllPets();
     console.log(pets);
