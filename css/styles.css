@@ -1,0 +1,11 @@
+.pet-card .card-picture {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.modal-body .card-picture {
+    max-height: 500px;
+    width: 100%;
+    object-fit: cover;
+}
